@@ -1,0 +1,7 @@
+alias ..="cd .."
+alias j="jobs"
+alias f="fg"
+alias gl="git log"
+alias gp="git pull"
+alias c="clear"
+alias gl="git log"

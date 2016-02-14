@@ -1,0 +1,2 @@
+alias gits="cd /cygdrive/c/users/$(whoami)/documents/gits"
+alias ~~="cd /cygdrive/c/users/$(whoami)/Documents"
