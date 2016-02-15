@@ -1,10 +1,10 @@
 #!/bin/bash
 
 #Install oh-my-zsh and zsh if not already
-if [[ ! -z which yum ]]; then
-    yum install zsh
-elif [[ ! -z which apt-get ]]; then
-    apt-get zsh
+if [[ ! -z $(which yum) ]]; then
+    yum install -y zsh
+elif [[ ! -z $(which apt-get) ]]; then
+    apt-get install -y zsh
 fi
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
