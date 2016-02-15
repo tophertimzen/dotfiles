@@ -1,6 +1,11 @@
 #!/bin/bash
 
-#Install oh-my-zsh if not already
+#Install oh-my-zsh and zsh if not already
+if [[ ! -z which yum ]]; then
+    yum install zsh
+elif [[ ! -z which apt-get ]]; then
+    apt-get zsh
+fi
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 #Install Topher's ZSH theme
