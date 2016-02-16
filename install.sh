@@ -1,15 +1,7 @@
 #!/bin/bash
 
-#Install oh-my-zsh and zsh if not already
-if [[ ! -z $(which yum) ]]; then
-    yum install -y zsh
-elif [[ ! -z $(which apt-get) ]]; then
-    apt-get install -y zsh
-fi
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-#Install Topher's ZSH theme
-cp topher.zsh-theme ~/.oh-my-zsh/themes/
+echo "[+] Installing Topher's dotfiles"
+echo "[+] Installation will end after oh-my-zsh is installed"
 
 #copy and backup dot files
 if [ ! -d ~/.dotfileBackups/$(date "+%F") ]; then
@@ -24,7 +16,6 @@ if [ ! -d ~/.dotfileBackups/$(date "+%F") ]; then
     cp .alias ~/.alias
     cp vim/.vimrc ~/.vimrc
     cp -r vim/.vim ~/.vim
-    cp .zshrc ~/.zshrc
     cp .exploits ~/.exploits
     cp .gitconfig ~/.gitconfig
 fi
@@ -40,9 +31,31 @@ if [ -d /cygdrive/ ]; then
     cp .cygwinAlias ~/.cygwinAlias
 else 
     echo "[+] Installing dark solarized theme for GNOME"
+
+    if [[ ! -z $(which yum) ]]; then
+        yum install -y gconf2
+        yum install gnome-terminal
+    elif [[ ! -z $(which apt-get) ]]; then
+        apt-get install gnome-terminal
+        apt-get install gconf2
+    fi
+
     git clone https://github.com/sigurdga/gnome-terminal-colors-solarized.git
     cd gnome-terminal-colors-solarized
     ./set_dark.sh
     cd ..
 fi
 
+#Install oh-my-zsh and zsh if not already
+if [[ ! -z $(which yum) ]]; then
+    yum install -y zsh
+elif [[ ! -z $(which apt-get) ]]; then
+    apt-get install -y zsh
+fi
+
+git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+
+#Install Topher's ZSH theme
+echo "[+] Adding Topher's zshrc and zsh theme"
+cp .zshrc ~/.zshrc
+cp topher.zsh-theme ~/.oh-my-zsh/themes/
