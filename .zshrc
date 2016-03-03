@@ -8,6 +8,10 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.alias
 source $HOME/.exploits
 
+if [[ -a ~/.private ]]; then
+    source $HOME/.private
+fi
+
 SAVEHIST=1000
 HISTFILE=$HOME/.zsh_history
 
@@ -25,6 +29,10 @@ SOLAR_BLUE=$(tput setaf 33)
 SOLAR_CYAN=$(tput setaf 37)
 SOLAR_GREEN=$(tput setaf 64)
 SOLAR_WHITE=$(tput setaf 254)
+
+if [[ -d /cygdrive/ ==]; then
+    source $HOME/.cygwinAlias
+fi
 
 gg () {
    grep $1 * -sirn

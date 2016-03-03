@@ -24,7 +24,6 @@ fi
 if [ -d /cygdrive/ ]; then
     echo "[+] Cygwin/Babun detected"
     echo "[+] Installing mintty and cygwinAlias"
-    echo 'source $HOME/.cygwinAlias' >> ~/.zshrc
     mv ~/.minttyrc ~/.dotfileBackups/$(date "+%F")/
     cp .minttyrc ~/.minttyrc
     cp .cygwinAlias ~/.cygwinAlias
