@@ -34,6 +34,17 @@ if [[ -d /cygdrive/ ==]; then
     source $HOME/.cygwinAlias
 fi
 
+#global grep 
 gg () {
    grep $1 * -sirn
 }
+
+#bash like fg
+fg() {
+    if [[ $# -eq 1 && $1 = - ]]; then
+        builtin fg %-
+    else
+        builtin fg %"$@"
+    fi
+}
+
