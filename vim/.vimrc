@@ -5,8 +5,8 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'majutsushi/tagbar'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -41,10 +41,8 @@ autocmd FileType python set sts=4
 
 "key combinations
 :nmap <C-N><C-N> :set invnumber<CR>
-
 inoremap <C-Space> <C-p>
-
-
+nmap <F8> :TagbarToggle<CR>
 
 "backup files
 set undodir=~/.vim/tmp/undo/
@@ -60,7 +58,6 @@ augroup END
 
 "make .txt and .md render as markdown
 autocmd BufRead,BufNewFile *.txt,*.md set filetype=markdown
-
 
 function! MakeExecutable()
 	if getline(1)=~"^#!.*/bin/"
