@@ -17,7 +17,6 @@ set mouse-=a
 set number
 set paste
 syntax enable
-colorscheme solarized
 set background=dark
 set nocompatible
 set hidden
@@ -32,7 +31,6 @@ hi Search ctermfg=Yellow ctermbg=NONE cterm=bold,underline
 set tabstop=4 shiftwidth=4
 set smartindent
 set expandtab
-set cursorline
 
 "python settings
 autocmd FileType python set sw=4
