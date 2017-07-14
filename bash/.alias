@@ -6,3 +6,5 @@ alias gp="git pull"
 alias c="clear"
 alias gl="git log"
 alias hopper="/opt/hopper-v3/hopper-launcher.sh"
+alias pwf="readlink -f"
+alias excuse='telnet towel.blinkenlights.nl 666 2>/dev/null |tail -2'

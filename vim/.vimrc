@@ -42,12 +42,21 @@ autocmd FileType python set sts=4
 inoremap <C-Space> <C-p>
 nmap <F8> :TagbarToggle<CR>
 
+"easier split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
 "backup files
 set undodir=~/.vim/tmp/undo/
 set backupdir=~/.vim/tmp/backup/
 set directory=~/.vim/tmp/swap/
 set backup
 set encoding=utf-8
+
+"ctags
+set tags=tags;
 
 "automatically chmod+x files that begin with #!/bin*
 augroup Executable
