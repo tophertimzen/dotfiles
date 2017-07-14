@@ -29,17 +29,18 @@ SOLAR_BLUE=$(tput setaf 33)
 SOLAR_CYAN=$(tput setaf 37)
 SOLAR_GREEN=$(tput setaf 64)
 SOLAR_WHITE=$(tput setaf 254)
+TERM=xterm-256color
 
-if [[ -d /cygdrive/ ==]; then
+if [ -d /cygdrive/  ]; then
     source $HOME/.cygwinAlias
 fi
 
-#global grep 
+# Global grep 
 gg () {
    grep $1 * -sirn
 }
 
-#bash like fg
+# Bash like fg
 fg() {
     if [[ $# -eq 1 && $1 = - ]]; then
         builtin fg %-

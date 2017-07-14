@@ -1,7 +1,11 @@
-#Topher's dotfiles
+# Topher's dotfiles
 
-#Installation
+# Installation
 
-    git clone https://github.com/tophertimzen/dotfiles.git ~/.dotfiles
-    cd ~/.dotfiles
-    ./install.sh 
+```
+git clone https://github.com/tophertimzen/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
+./packages.sh
+./preInstall.sh
+./install.sh 
+```
