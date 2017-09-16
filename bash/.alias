@@ -3,3 +3,5 @@ alias j="jobs"
 alias f="fg"
 alias c="clear"
 alias hopper="/opt/hopper-v3/hopper-launcher.sh"
+alias pwf="readlink -f"
+alias excuse='telnet towel.blinkenlights.nl 666 2>/dev/null |tail -2'
