@@ -25,7 +25,7 @@ set hidden
 set hlsearch
 set incsearch
 set ignorecase
-set smartcase 
+set smartcase
 hi Search ctermfg=Yellow ctermbg=NONE cterm=bold,underline
 
 set tabstop=4 shiftwidth=4
@@ -42,12 +42,21 @@ autocmd FileType python set sts=4
 inoremap <C-Space> <C-p>
 nmap <F8> :TagbarToggle<CR>
 
+"easier split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
 "backup files
 set undodir=~/.vim/tmp/undo/
 set backupdir=~/.vim/tmp/backup/
 set directory=~/.vim/tmp/swap/
 set backup
 set encoding=utf-8
+
+"ctags
+set tags=tags;
 
 "automatically chmod+x files that begin with #!/bin*
 augroup Executable
@@ -58,7 +67,27 @@ augroup END
 autocmd BufRead,BufNewFile *.txt,*.md set filetype=markdown
 
 function! MakeExecutable()
-	if getline(1)=~"^#!.*/bin/"
-		silent !chmod a+x <afile>
-	endif
+    if getline(1)=~"^#!.*/bin/"
+        silent !chmod a+x <afile>
+    endif
 endfunction
+
+function ShowSpaces(...)
+  let @/='\v(\s+$)|( +\ze\t)'
+  let oldhlsearch=&hlsearch
+  if !a:0
+    let &hlsearch=!&hlsearch
+  else
+    let &hlsearch=a:1
+  end
+  return oldhlsearch
+endfunction
+
+function TrimSpaces() range
+  let oldhlsearch=ShowSpaces(1)
+  execute a:firstline.",".a:lastline."substitute ///gec"
+  let &hlsearch=oldhlsearch
+endfunction
+
+command -bar -nargs=? ShowSpaces call ShowSpaces(<args>)
+command -bar -nargs=0 -range=% TrimSpaces <line1>,<line2>call TrimSpaces()
