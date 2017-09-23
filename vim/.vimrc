@@ -13,7 +13,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 "generic options
-set mouse-=a
+set mouse=a
 set number
 set paste
 syntax enable
