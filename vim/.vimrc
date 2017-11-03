@@ -43,6 +43,8 @@ autocmd FileType python set sts=4
 
 "key combinations
 :nmap <C-N><C-N> :set invnumber<CR>
+:nmap <C-P><C-P> :set paste<CR>
+:nmap <C-P><C-N> :set nopaste<CR>
 inoremap <C-Space> <C-p>
 nmap <F8> :TagbarToggle<CR>
 
