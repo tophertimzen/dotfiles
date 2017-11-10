@@ -1,5 +1,4 @@
-"vundle
-                   
+"vundle                   
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -36,6 +35,7 @@ set ai
 set si
 set wrap
 
+
 "python settings
 autocmd FileType python set sw=4
 autocmd FileType python set ts=4
@@ -45,6 +45,9 @@ autocmd FileType python set sts=4
 :nmap <C-N><C-N> :set invnumber<CR>
 :nmap <C-P><C-P> :set paste<CR>
 :nmap <C-P><C-N> :set nopaste<CR>
+set pastetoggle=<F10>
+inoremap <C-v> <F10><C-r>+<F10>
+
 inoremap <C-Space> <C-p>
 nmap <F8> :TagbarToggle<CR>
 
